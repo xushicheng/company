@@ -1,0 +1,39 @@
+form {
+  font-size: 14px;
+  input {
+    padding: 5px 12px;
+    margin: 5px 5px 5px 0;
+    color: #555;
+  }
+  textarea {
+    font-size: 16px;
+    height: 180px;
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 5px;
+    color: #555;
+  }
+  label {
+    display: inline-block;
+  }
+  dd {
+    margin-left: 0;
+  }
+  .error {
+    color: red;
+    font-style: italic;
+  }
+}
+
+.w3 {
+  width: 30%
+}
+.w5 {
+  width: 50%
+}
+.w8 {
+  width: 80%
+}
+.w10 {
+  width: 100%
+}

@@ -1,0 +1,16 @@
+<div class="article">
+  <%= form_for(@comment = Comment.new(:blog_id => @blog.id, :user_id => current_user.id)) do |f| %>
+    <%= f.hidden_field :blog_id %>
+    <%= f.hidden_field :user_id %>
+    <dl class="form">
+    <dt>尊敬的<%= link_to current_user.name, current_user %>,您可以在下方留言</dt>
+    <dd><%= f.label :content, "留言内容(请控制在255个字符以内)" %></dd>
+    <%= f.text_area :content, class: 'w10' %>
+    <% if @comment.errors[:content].any? %>
+      <dd class="error"><%= @comment.errors[:content] %></dd>
+    <% end %>
+    </dl>
+    <%= f.submit "留言提交", class: "w3 btn btn-primary" %>
+    <%= f.submit "预览一下", class: "w3 btn btn-default" %>
+  <% end %>
+</div>

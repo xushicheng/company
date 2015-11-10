@@ -1,0 +1,22 @@
+<div class="clr"></div>
+<br>
+<br>
+<%= form_tag "/create_login_session" do %>
+  <dl class="form">
+    <dt><%= label_tag "用户名" %></dt>
+    <dd><%= text_field_tag(:name, params[:name], class: "w3") %></dd>
+  </dl>
+  <dl class="from">
+    <dt><%= label_tag "密码" %></dt>
+    <dd><%= password_field_tag(:password, params[:password], class: "w3") %></ddd>
+  </dl>
+  <dl class="form remember-me">
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    <%= label_tag "记住我" %>
+  </dl>
+  <%= submit_tag "登录", class: "w5 btn btn-primary" %>
+<% end %>
+<%= button_to "注册", signup_path, class: "w5 btn btn-success" %>
+
+
+

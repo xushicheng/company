@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Company</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "layouts/header" %>
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <%= yield %>
+      </div>
+      <%= render "layouts/sidebar" %>
+    </div>
+  </div>
+  <%= render "layouts/footer" %>
+</body>
+</html>

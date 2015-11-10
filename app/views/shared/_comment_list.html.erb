@@ -1,0 +1,10 @@
+
+  <% @comments.each do |c| %>
+    <div class="comment">
+      <%= link_to (image_tag "userpic.gif", size: "40x40", alt: "user", class: "userpic"),'#' %>
+      <p>
+      <%= link_to current_user.name, '#' %>&nbsp;&nbsp;Says:<br /><%= time_ago_in_words c.created_at %> ago
+      </p>
+      <p><%= c.content %></p>
+    </div>
+  <% end %>

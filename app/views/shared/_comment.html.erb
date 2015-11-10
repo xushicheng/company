@@ -1,0 +1,7 @@
+<div class="article">
+  <%= form_tag("/blogs/#{blog.id}/commets", method: :post) do %>
+    <%= text_area_tag(:content) %>
+    <%= submit_tag "留言提交", class: "w3 btn btn-primary" %>
+    <%= submit_tag "预览一下", class: "w3 btn btn-default" %>
+  <% end %>
+</div>

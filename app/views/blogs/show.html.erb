@@ -1,0 +1,28 @@
+<div class="article" id="blog_show">
+  <p id="notice"><%= notice %></p>
+
+  <h2>
+    <strong>
+      <%= @blog.title %>
+    </strong>
+  </h2>
+
+  <h3>
+    概述: <%= @blog.tag %>
+  </h3>
+
+  <p>
+    <%= @blog.content %>
+  </p>
+
+
+  <h3>
+    <%= link_to '返回总览', blogs_path( @blogs, anchor: "blog-#{@blog.id}") %>
+  </h3>
+</div>
+
+<div class="article" id="comments_index">
+  <h2><i class="fa fa-camera-retro fa-2x"></i><span><%= @comments.count %></span>  条留言</h2>
+  <%= render "shared/comment_list", locals: {comments: @comments} %>
+</div>
+<%= render "shared/comment_box" %>

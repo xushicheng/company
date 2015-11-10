@@ -1,0 +1,17 @@
+<% provide(:title, "博客留言") %>
+<div class="article">
+  <p id="notice"><%= notice %></p>
+
+  <h1>博客列表</h1>
+    <% @blogs.each do |blog| %>
+      <div class="article" id="blog-<%= blog.id %>">
+          <h2><%= link_to blog.title, blog_path(blog, anchor: "blog_show") %></h2>
+          <h3>
+            标签: <%= blog.tag %>
+          </h3>
+          <p><%= blog.content %></p>
+        <h3><%= link_to "用户留言(#{blog.comments.count})" , blog_path(blog, anchor: "comments_index") %><span>&nbsp;&bull;&nbsp;</span>  May 27, 2010  <span>&nbsp;&bull;&nbsp;</span>  <%= link_to 'Edit', edit_blog_path(blog) %></h3>
+      </div>
+      <hr>
+    <% end %>
+</div>
