@@ -36,13 +36,7 @@ gem 'nokogiri'
 gem 'pry'
 gem 'did_you_mean'
 gem 'font-awesome-sass'
-
-gem 'activeadmin', github: 'activeadmin'
-# Plus integrations with:
-gem 'devise'
-gem 'cancan' # or cancancan
-gem 'draper'
-gem 'pundit'
+gem 'jquery-atwho-rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

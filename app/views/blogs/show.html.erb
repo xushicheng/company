@@ -3,7 +3,7 @@
 
   <h2>
     <strong>
-      <%= @blog.title %>
+      <%= @blog.title %>      <small>(<i><%= format_date(@blog.created_at) %></i>)</small>
     </strong>
   </h2>
 
@@ -23,6 +23,8 @@
 
 <div class="article" id="comments_index">
   <h2><i class="fa fa-camera-retro fa-2x"></i><span><%= @comments.count %></span>  条留言</h2>
-  <%= render "comments/comments_list", locals: {comments: @comments} %>
+  <% @blog.comments.each do |c| %>
+    <%= render partial: "comments/comment", locals: {c: c} %>
+  <% end %>
 </div>
 <%= render "comments/comments_box" %>

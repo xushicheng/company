@@ -1,0 +1,8 @@
+
+  <div class="comment" id="blog-<%= c.blog.id %>-comment-<%= c.id %>">
+    <%= link_to (image_tag "userpic.gif", size: "40x40", alt: "user", class: "userpic"),'#' %>
+    <p>
+    <%= link_to c.user.name, '#' %>      说:<br /><%= format_time(c.created_at) %>
+    </p>
+    <p><%= c.content %></p>
+  </div>

@@ -1,5 +1,5 @@
 <div class="article">
-  <%= form_for(@comment = Comment.new(:blog_id => @blog.id, :user_id => current_user.id)) do |f| %>
+  <%= form_for(@comment = Comment.new(:blog_id => @blog.id, :user_id => current_user.id), remote: true) do |f| %>
     <%= f.hidden_field :blog_id %>
     <%= f.hidden_field :user_id %>
     <dl class="form">
@@ -10,7 +10,22 @@
       <dd class="error"><%= @comment.errors[:content] %></dd>
     <% end %>
     </dl>
-    <%= f.submit "留言提交", class: "w3 btn btn-primary" %>
-    <%= f.submit "预览一下", class: "w3 btn btn-default" %>
+    <%= f.submit "Ctrl+Enter", class: "w3 btn btn-primary" %>
   <% end %>
 </div>
+
+<script>
+  var commenter_exist = [];
+  $('.comment p a').each(function(){
+    if($.inArray($(this).text(), commenter_exist) < 0) {
+      commenter_exist.push($(this).text());
+    }
+  });
+  $('textarea').atwho({ at: "@", 'data': commenter_exist});
+
+  $("#new_comment textarea#comment_content").keydown(function(e) {
+    if ((e.ctrlKey||e.metaKey) && e.keyCode ==13) {
+      $("#new_comment input[type=submit]").click();
+    }
+  });
+</script>

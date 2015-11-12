@@ -3,8 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :current_user
+  helper_method :format_time, :format_date
 #  helper_method :login_admin
 
+  def format_time(time)
+    time.strftime("%Y-%m-%d %H:%M")
+  end
+
+  def format_date(time)
+    time.strftime("%Y.%m.%d")
+  end
 
   private
     def current_user
