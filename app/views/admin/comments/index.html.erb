@@ -1,0 +1,8 @@
+<div class="article">
+  <% @comments.each do |c| %>
+    <h3><big><%= link_to c.user.name, admin_user_path(c.user) %></big>&nbsp;&nbsp;在&nbsp;&nbsp;<big><%= link_to c.blog.title, blog_path(c.blog) %></big>&nbsp;&nbsp;下发布了一条留言:</h3>
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to truncate(c.content, length: 80), blog_path(c.blog, anchor: "blog-#{c.blog.id}-comment-#{c.id}") %></h3>
+    <hr>
+  <% end %>
+</div>
+

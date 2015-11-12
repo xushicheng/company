@@ -11,9 +11,9 @@
     概述: <%= @blog.tag %>
   </h3>
 
-  <p>
+  <h3>
     <%= @blog.content %>
-  </p>
+  </h3>
 
 
   <h3>
@@ -23,6 +23,6 @@
 
 <div class="article" id="comments_index">
   <h2><i class="fa fa-camera-retro fa-2x"></i><span><%= @comments.count %></span>  条留言</h2>
-  <%= render "shared/comment_list", locals: {comments: @comments} %>
+  <%= render "comments/comments_list", locals: {comments: @comments} %>
 </div>
-<%= render "shared/comment_box" %>
+<%= render "comments/comments_box" %>

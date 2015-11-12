@@ -1,0 +1,19 @@
+<h1>管理员登录</h1>
+<div class="mainbar">
+<div class="clr"></div>
+<%= form_tag "/create_login_session" do %>
+  <dl class="form">
+    <dt><h2><%= label_tag "用户名" %></h2></dt>
+    <dd><%= text_field_tag(:name, params[:name], class: "w5") %></dd>
+  </dl>
+  <dl class="from">
+    <dt><h2><%= label_tag "密码" %></h2></dt>
+    <dd><%= password_field_tag(:password, params[:password], class: "w5") %></ddd>
+  </dl>
+  <dl class="form remember-me">
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    <%= label_tag "记住我" %>
+  </dl>
+  <%= submit_tag "登录", class: "w5 btn btn-primary" %>
+<% end %>
+</div>

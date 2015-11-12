@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'home'    => 'page#home'
   get 'about'   => 'page#about'
   get 'contact' => 'page#contact'
   get 'member'  => 'page#member'
-  root 'page#home'
+  root to: 'page#home'
 
   match 'signup' => 'users#signup', via: [:get, :post], as: 'signup'
   get 'login' => 'users#login', as: 'login'
@@ -14,5 +13,11 @@ Rails.application.routes.draw do
   resources :blogs
   resources :comments
 
-  get 'admin' => 'users#admin', as: 'admin'
+  namespace :admin do
+    resources :users
+    resources :blogs
+    resources :comments
+    resources :sessions, :only=>[:new, :create, :destroy]
+    root to: 'dashboard#index'
+  end
 end

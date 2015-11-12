@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: :admin
-
   def signup
     @user = User.new
   end
@@ -35,20 +33,12 @@ class UsersController < ApplicationController
 
   def logout
     cookies.delete(:auth_token)
-    redirect_to root_path
-  end
-
-  def admin
-    @blogs = Blog.all
+    redirect_to member_path
   end
 
 
   private
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
-    end
-
-    def admin_user
-      redirect_to root_path unless current_user.admin?
     end
 end
