@@ -12,7 +12,7 @@ class Admin::SessionsController < Admin::BaseController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to member_path
+      redirect_to login_path
     else
       render plain: params.inspect
     end

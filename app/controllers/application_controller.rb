@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       if current_user
         unless current_user.admin?
           flash.notice = "普通用户无权访问后台"
-          redirect_to member_path
+          redirect_to login_path
         end
       else
         flash.notice = "请先登录管理员账户"

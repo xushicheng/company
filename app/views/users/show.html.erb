@@ -1,8 +1,8 @@
 <div class="article">
-  <h2>会员姓名:&nbsp;&nbsp;&nbsp;<%= @user.name %></h2>
-  <h2>会员邮箱:&nbsp;&nbsp;&nbsp;<%= @user.email %></h2>
-  <h2>会员空间:&nbsp;&nbsp;&nbsp;<%= link_to @user.zone, "http://#{@user.zone}", target: "_blank" %></h2>
-  <h2>会员所有的留言:</h2>
+  <h2>用户姓名:&nbsp;&nbsp;&nbsp;<%= @user.name %></h2>
+  <h2>用户邮箱:&nbsp;&nbsp;&nbsp;<%= @user.email %></h2>
+  <h2>用户空间:&nbsp;&nbsp;&nbsp;<%= link_to @user.zone, "http://#{@user.zone}", target: "_blank" %></h2>
+  <h2>用户所有的留言:</h2>
   <% @user.comments.each do |c| %>
   <h2>在 <%= link_to c.blog.title, blog_path(c.blog) %> 中的留言: <%= link_to c.content, blog_path(c.blog, anchor: "blog-#{c.blog.id}-comment-#{c.id}") %></h2>
   <hr>

@@ -33,6 +33,6 @@
 <% if current_user %>
   <%= render "comments/comments_box" %>
 <% else %>
-  <h2><%= link_to "要留言请先登录", member_path %></h2>
+  <h2><%= link_to "要留言请先登录", login_path %></h2>
   <h2><%= link_to "还没有账户?点我注册", login_path %></h2>
 <% end %>

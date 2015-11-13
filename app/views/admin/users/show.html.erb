@@ -1,8 +1,8 @@
 <div class="article">
   <%= image_tag @user.gravatar, size: "80x80", alt: "user_#{@user.id}", class: "userpic" %>
-  <h2>会员姓名:&nbsp;&nbsp;&nbsp;<%= @user.name %></h2>
-  <h2>会员邮箱:&nbsp;&nbsp;&nbsp;<%= @user.email %></h2>
-  <h2>会员空间:&nbsp;&nbsp;&nbsp;<%= @user.zone %></h2>
+  <h2>用户姓名:&nbsp;&nbsp;&nbsp;<%= @user.name %></h2>
+  <h2>用户邮箱:&nbsp;&nbsp;&nbsp;<%= @user.email %></h2>
+  <h2>用户空间:&nbsp;&nbsp;&nbsp;<%= @user.zone %></h2>
   <h2>所有的留言:</h2>
   <%= will_paginate(@comments) %>
   <% @comments.each do |c| %>

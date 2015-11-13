@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'about'   => 'page#about'
   get 'contact' => 'page#contact'
-  get 'member'  => 'page#member'
   root to: 'page#home'
 
   match 'signup' => 'users#signup', via: [:get, :post], as: 'signup'
