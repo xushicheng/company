@@ -12,11 +12,20 @@
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">
+        <% if flash.notice %>
+          <div class="notice"><%= flash.notice %></div>
+        <% end %>
         <%= yield %>
       </div>
       <%= render "layouts/sidebar" %>
     </div>
   </div>
   <%= render "layouts/footer" %>
+  <script>
+    var hideNotice = function(){
+     $(".notice").fadeOut("slow");
+    }
+    setTimeout(hideNotice, 2000);
+  </script>
 </body>
 </html>

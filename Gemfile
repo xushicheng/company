@@ -37,7 +37,10 @@ gem 'pry'
 gem 'did_you_mean'
 gem 'font-awesome-sass'
 gem 'jquery-atwho-rails'
-
+gem 'pygments.rb'
+gem 'redcarpet'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

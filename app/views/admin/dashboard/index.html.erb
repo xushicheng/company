@@ -1,8 +1,4 @@
-<% if current_user && current_user.admin? %>
-  <p>asdfasd</p>
-  <% else %>
 <h2>我公司目前拥有</h2>
-<h2><%= @users_count-1 %> 名会员</h2>
-<h2><%= @blogs_count %> 篇企业博客</h2>
-<h2><%= @comments_count %> 条留言</h2>
-<% end %>
+<h2><%= @users_count-1 %> 名会员     <small><%= link_to "管理", admin_users_path %></small></h2>
+<h2><%= @blogs_count %> 篇企业博客     <small><%= link_to "管理", admin_blogs_path %></small></h2>
+<h2><%= @comments_count %> 条留言      <small><%= link_to "管理", admin_comments_path %></small></h2>

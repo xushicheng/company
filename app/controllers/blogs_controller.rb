@@ -4,19 +4,23 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.paginate(:page => params[:page])
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
     @blog = Blog.find(params[:id])
-    @comments = @blog.comments
+    @comments = @blog.comments.paginate(:page => params[:page])
   end
 
   # GET /blogs/new
   def new
-    @blog = Blog.new
+    if current_user && current_user.admin?
+      @blog = Blog.new
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /blogs/1/edit
