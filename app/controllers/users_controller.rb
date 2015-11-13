@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       cookies[:auth_token] = @user.auth_token
-      redirect_to login_path
+      redirect_to member_path
     else
       render :signup
     end
@@ -25,16 +25,15 @@ class UsersController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to login_path
+      redirect_to member_path
     else
-      flash.notice = "用户/密码错误!"
       redirect_to login_path
     end
   end
 
   def logout
     cookies.delete(:auth_token)
-    redirect_to login_path
+    redirect_to member_path
   end
 
 
