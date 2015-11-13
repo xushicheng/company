@@ -1,8 +1,4 @@
-if ENV['RUBYTAOBAO']
-  source 'http://ruby.taobao.org'
-else
-  source 'https://rubygems.org'
-end
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,7 +28,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'font-awesome-rails'
-gem 'nokogiri'
 gem 'pry'
 gem 'did_you_mean'
 gem 'font-awesome-sass'

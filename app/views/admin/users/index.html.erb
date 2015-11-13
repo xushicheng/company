@@ -1,13 +1,14 @@
 <div class="article">
   <% @users.each do |user| %>
     <div>
+      <%= image_tag user.gravatar, size: "40x40", alt: "user_#{user.id}", class: "userpic" %>
       <h2 class="inline">
         <%= user.name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <h3 class="inline"><%= link_to '编辑详情', admin_user_path(user) %></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <h3 class="inline">
-          <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to '删除用户', admin_users_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+        <% if !user.admin? %>
+          <%= link_to '删除用户', admin_users_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
         </h3>
       </h2>
     </div>

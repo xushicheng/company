@@ -5,6 +5,7 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @user = User.find(params[:id])
+    @comments = @user.comments.paginate(:page => params[:page])
   end
 
   def destroy

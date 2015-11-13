@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
 
     def login_admin_user
       if current_user
-        if current_user.admin?
-          redirect_to admin_root_path
-        else
+        unless current_user.admin?
           flash.notice = "普通用户无权访问后台"
           redirect_to member_path
         end

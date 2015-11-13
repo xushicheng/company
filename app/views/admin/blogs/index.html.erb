@@ -1,9 +1,9 @@
 <div class="article">
   <% @blogs.each do |blog| %>
     <div>
-      <h2 class="inline"><%= blog.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="inline"><%= time_ago_in_words blog.created_at %> ago</h2>
+      <h2 class="inline"><%= blog.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="inline"><%= format_date(blog.created_at) %></h2>
       <h3><%= link_to truncate(blog.content, length: 160), blog_path(blog) %></h3>
-      <h3 class="inline"><%= link_to '编辑详情', admin_blog_path(blog) %></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="inline"><%= link_to '删除', admin_blogs_path, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
+      <h3 class="inline"><%= link_to '编辑详情', edit_admin_blog_path(blog) %></h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="inline"><%= link_to '删除', admin_blogs_path, method: :delete, data: { confirm: 'Are you sure?' } %></h3>
     </div>
     <br>
     <hr>

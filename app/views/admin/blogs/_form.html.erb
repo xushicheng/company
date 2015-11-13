@@ -1,0 +1,29 @@
+<%= form_for(@blog) do |f| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "标题" %><br>
+    <%= f.text_field :title, class: "w5" %>
+  </div>
+  <div class="field">
+    <%= f.label "一句话描述" %><br>
+    <%= f.text_field :tag, class: "w10" %>
+  </div>
+  <div class="field">
+    <%= f.label "内容" %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "创建", class: "btn btn-primary" %>
+  </div>
+<% end %>

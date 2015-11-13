@@ -23,10 +23,11 @@
 
 <div class="article" id="comments_index">
   <h2><i class="fa fa-comments-o"></i><span><%= @comments.count %></span>  条留言</h2>
-  <%= will_paginate(@blog.comments) %>
-  <% @blog.comments.each do |c| %>
-    <%= render partial: "comments/comment", locals: {c: c} %>
-  <% end %>
+  <%= will_paginate(@comments) %>
+    <% @comments.each do |c| %>
+      <%= render partial: "comments/comment", locals: {c: c} %>
+    <% end %>
+  <%= will_paginate(@comments) %>
 </div>
 
 <% if current_user %>

@@ -8,5 +8,6 @@ class Admin::BlogsController < Admin::BaseController
   end
 
   def edit
+    @blog = Blog.find(params[:id])
   end
 end

@@ -184,7 +184,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-atwho-rails
   jquery-rails
-  nokogiri
   pg
   pry
   pygments.rb
