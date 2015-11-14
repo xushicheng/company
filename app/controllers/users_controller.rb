@@ -27,7 +27,8 @@ class UsersController < ApplicationController
       end
       redirect_to member_path
     else
-      redirect_to login_path
+      flash.notice = "请检查用户名和密码"
+      redirect_to member_path
     end
   end
 

@@ -4,17 +4,14 @@ class Admin::SessionsController < Admin::BaseController
   def new
   end
 
-  def create
+  def login_admin_session
     user = User.find_by_name(params[:name])
-    if user && user.authenticate(params[:password])
-      if params[:remember_me]
-        cookies.permanent[:auth_token] = user.auth_token
-      else
-        cookies[:auth_token] = user.auth_token
-      end
-      redirect_to member_path
+    if user && user.admin? && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect_to admin_root_path
     else
-      render plain: params.inspect
+      flash.notice = "请检查用户名和密码!"
+      redirect_to new_admin_session_path
     end
   end
 

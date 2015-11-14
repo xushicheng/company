@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     resources :users
     resources :blogs
     resources :comments
-    resources :sessions, :only=>[:new, :create, :destroy]
+    post 'sessions/login_admin_session' => 'sessions#login_admin_session'
+    resources :sessions
     root to: 'dashboard#index'
   end
 end
