@@ -19,7 +19,10 @@ class UsersController < ApplicationController
 
   def create_login_session
     user = User.find_by_name(params[:name])
-    if user && user.authenticate(params[:password])
+    if user.nil?
+      flash[:danger] = "用户不存在!"
+      redirect_to member_path
+    elsif user && user.authenticate(params[:password])
       if params[:remember_me]
         cookies.permanent[:auth_token] = user.auth_token
       else
@@ -27,7 +30,7 @@ class UsersController < ApplicationController
       end
       redirect_to member_path
     else
-      flash.notice = "请检查用户名和密码"
+      flash[:danger] = "密码输入错误!"
       redirect_to member_path
     end
   end

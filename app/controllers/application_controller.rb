@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
     def login_admin_user
       if current_user
         unless current_user.admin?
-          flash.notice = "普通用户无权访问后台"
+          flash[:notice] = "普通用户无权访问后台"
           redirect_to member_path
         end
       else
-        flash.notice = "请先登录管理员账户"
+        flash[:notice] = "请先登录管理员账户"
         redirect_to new_admin_session_path
       end
     end

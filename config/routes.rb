@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :blogs
   resources :comments
 
+  get "/auth/:provider/callback", to: 'sessions#create'
+  get "/auth/:provider/failure", to: redirect("/")
+
   namespace :admin do
     resources :users
     resources :blogs

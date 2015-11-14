@@ -8,13 +8,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "flash flash-#{message_type}") %>
+  <% end %>
+
   <%= render "layouts/header" %>
   <div class="content">
     <div class="content_resize">
       <div class="mainbar">
-        <% if flash.notice %>
-          <div class="notice"><%= flash.notice %></div>
-        <% end %>
         <%= yield %>
       </div>
       <%= render "layouts/sidebar" %>

@@ -105,14 +105,18 @@ a.rm, a.com, p span.date, ul.sb_menu li a:hover, ul.ex_menu li a:hover {
 .btn-success{color:#fff;background-color:#5cb85c;border-color:#4cae4c}
 
 
-.notice {
+.flash {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background: red;
   color: white;
   padding: 20px;
   -webkit-box-shadow: 6px 7px 9px -1px rgba(0,0,0,0.68);
   -moz-box-shadow: 6px 7px 9px -1px rgba(0,0,0,0.68);
   box-shadow: 6px 7px 9px -1px rgba(0,0,0,0.68);
 }
+.flash-primary { background-color: #337ab7;}
+.flash-success{ background-color: #5cb85c;}
+.flash-info{ background-color:   #5bc0de;}
+.flash-warning{ background-color: #f0ad4e;}
+.flash-danger{ background-color:  #d9534f;}
