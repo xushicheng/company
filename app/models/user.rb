@@ -64,13 +64,14 @@ class User < ActiveRecord::Base
   end
 =end
 
-#备忘:好多视频网的login-with-linkedin教程
+#备忘:好多视频网的login-with-linkedin教程..不过写法已经在 rails4.1.5中废弃.目前写法为 google 到的正确的写法
   def self.from_auth(auth)
-    User.where(auth.slice(:provider)).first_or_create do |user|
+    where(:provider => auth.provider, :uid => auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
       user.email = auth.info.email
+      user.save
     end
   end
 end

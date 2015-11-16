@@ -2,17 +2,16 @@
   <% if current_user %>
     <% if current_user.admin? %>
       <h2>管理已登录,现在就<%= link_to "进入后台", admin_root_path %></h2>
-      <h2><small><%= link_to "退出登录", logout_path, method: 'delete' %></small></h2>
     <% else %>
-      <h2>欢迎回来, 尊贵的 <%= link_to current_user.name, current_user %></h2>
+      <h2>欢迎回来, <%= link_to current_user.name, current_user %></h2>
       <h2>我们竭诚为您提供最优质的服务方案</h2>
       <h2>您可以<%= link_to "在这里", "http://www.ogilvy.com.cn", target: "_blank" %>看到我们的众多成功示例</h2>
-      <h2><small><%= link_to "退出登录", logout_path, method: 'delete' %></small></h2>
     <% end %>
+    <h2><small><%= link_to "退出登录", logout_path, method: 'delete' %></small></h2>
   <% else %>
     <h2>欢迎来到万象广告</h2>
     <h2>永远致力于最美好的事情将会发生</h2>
-    <h2>您可以<%= link_to "在这里", "http://www.ogilvy.com.cn", target: "_blank" %>看到我们的众多成功示例</h2>
+    <h2>您可以<%= link_to "在这里", "http://www.ogilvy.com.cn", target: "_blank" %>看到我们的众多成功示例(外链演示)</h2>
     <%= render partial: 'users/login' %>
   <% end %>
 </div>

@@ -2,11 +2,14 @@
   <div class="header_resize">
     <div class="menu_nav">
       <ul>
-        <li class="active"><%= link_to "公司主页", root_path %></li>
+        <li><%= link_to "公司主页", root_path %></li>
         <li><a href="about.html">关于我们</a></li>
         <li><%= link_to "企业博客", blogs_path %></li>
         <li><%= link_to "会员功能", member_path %></li>
         <li><a href="contact.html">联系我们</a></li>
+        <% if logged_in? && current_user.admin? %>
+          <li><%= link_to "管理后台", admin_root_path %></li>
+        <% end %>
       </ul>
     </div>
     <div class="clr"></div>

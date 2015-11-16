@@ -39,8 +39,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
 gem 'omniauth'
-gem 'omniauth-github', :github => 'intridea/omniauth-github'
-gem 'omniauth-identity'
+gem 'omniauth-google-oauth2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

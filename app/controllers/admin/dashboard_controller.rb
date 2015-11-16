@@ -1,4 +1,5 @@
 class Admin::DashboardController < Admin::BaseController
+
   def index
     @users_count = User.all.size
     @blogs_count = Blog.all.size

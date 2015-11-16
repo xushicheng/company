@@ -13,15 +13,13 @@ Rails.application.routes.draw do
   resources :blogs
   resources :comments
 
-  get "/auth/:provider/callback", to: 'sessions#create'
+  match "/auth/:provider/callback", to:'sessions#create', via: [:get, :post]
   get "/auth/:provider/failure", to: redirect("/")
 
   namespace :admin do
     resources :users
     resources :blogs
     resources :comments
-    post 'sessions/login_admin_session' => 'sessions#login_admin_session'
-    resources :sessions
     root to: 'dashboard#index'
   end
 end
