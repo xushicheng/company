@@ -5,11 +5,10 @@ class Admin::BaseController < ApplicationController
 
   private
   def logged_admin
-    if logged_in? && current_user.admin?
-      redirect_to admin_root_path
-    else
+    unless logged_in? && current_user.admin?
       redirect_to root_path
     end
   end
+
   helper_method :logged_admin
 end

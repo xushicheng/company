@@ -21,6 +21,10 @@
   <% end %>
 </div>
 
+  <% if current_user.admin? %>
+    <i class="fa fa-hand-o-right fa-2x"></i><h2 class="inline"><%= link_to "编辑", edit_blog_path(@blog) %></h2>
+  <% end %>
+
 <div class="article" id="comments_index">
   <h2><i class="fa fa-comments-o"></i><span><%= @comments.count %></span>  条留言</h2>
   <%= will_paginate(@comments) %>

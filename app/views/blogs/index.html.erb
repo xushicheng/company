@@ -1,19 +1,27 @@
 <% provide(:title, "博客留言") %>
 <div class="article">
   <p id="notice"><%= notice %></p>
-  <%= will_paginate %>
+    <% if logged_in? && current_user.admin? %>
+      <i class="fa fa-pencil-square-o fa-2x"></i><h2 class="inline"><%= link_to "创建博客", new_blog_path %></h2>
+    <% end %>
+  <%= will_paginate @blogs %>
     <% @blogs.each do |blog| %>
       <div class="article" id="blog-<%= blog.id %>">
+      <% if logged_in? && current_user.admin? %>
+        <i class="fa fa-hand-o-right fa-2x"></i><h2 class="inline"><%= link_to "戳我编辑", edit_blog_path(blog) %></h2>
+        <br>
+        <i class="fa fa-warning fa-2x"></i><h2 class="inline"><%= link_to "删除博客及其所有评论", blog, method: :delete, data:{confirm: "删除博客还将删除此博客下所有留言,请慎重!"} %></h2>
+      <% end %>
           <h2>
-            <i class="fa fa-bookmark fa-2x"></i> <%= link_to blog.title, blog_path(blog, anchor: "blog_show") %>
+            <i class="fa fa-bookmark"></i> <%= link_to blog.title, blog_path(blog, anchor: "blog_show") %>
           </h2>
           <h3>
             <i class="fa fa-tags"></i>标签: <%= blog.tag %>
           </h3>
-          <p><%= blog.content %></p>
-        <h3><i class="fa fa-comments-o fa-2x"></i><%= link_to "用户留言(#{blog.comments.count})" , blog_path(blog, anchor: "comments_index") %><span>&nbsp;&bull;&nbsp;</span>  <%= format_date(blog.created_at) %>  <span>&nbsp;&bull;&nbsp;</span></h3>
+          <p><%= markdown blog.content %></p>
+        <h3><i class="fa fa-comments-o fa-2x"></i><%= link_to "用户留言(#{blog.comments.count})" , blog_path(blog, anchor: "comments_index") %><span>&nbsp;&bull;&nbsp;</span>  <%= format_time(blog.created_at) %>  <span>&nbsp;&bull;&nbsp;</span></h3>
       </div>
       <hr>
     <% end %>
-  <%= will_paginate %>
+  <%= will_paginate @blogs %>
 </div>

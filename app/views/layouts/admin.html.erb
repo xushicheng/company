@@ -12,10 +12,10 @@
     <div class="header_resize">
       <div class="menu_nav">
         <ul>
-          <li class="active"><%= link_to "回到主页", root_path %></li>
+          <li><%= link_to "回到主页", root_path %></li>
           <li><%= link_to "后台概览", admin_root_path %></li>
           <li><%= link_to "管理会员", admin_users_path %></li>
-          <li><%= link_to "管理博客", admin_blogs_path %></li>
+          <li><%= link_to "管理博客", blogs_path %></li>
           <li><%= link_to "管理留言", admin_comments_path %></li>
           <li class="pull-right"><%= link_to "退出管理员", logout_path, method: 'delete' %></li>
         </ul>
